@@ -1,15 +1,38 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from app.models import Materia, Alumno, Profesor
 
 # Create your views here.
 
-def inicio(request):
-    return render(request, "app/index.html")
+def listar_materias(request):
+    contexto = {
+        "materias": Materia.objects.all(),
+    }
+    http_response= render(
+        request=request,
+        template_name='app/materias.html',
+        context=contexto,
+    )
+    return http_response
 
-def materias(request):
-    return render(request, "app/materias.html")
+def listar_alumnos(request):
+    contexto = {
+        "alumnos": Alumno.objects.all(),
+    }
+    http_response= render(
+        request=request,
+        template_name='app/alumnos.html',
+        context=contexto,
+    )
+    return http_response
 
-def alumnos(request):
-    return render(request, "app/alumnos.html")
-
-def profesores(request):
-    return render(request, "app/profesores.html")
+def listar_profesores(request):
+    contexto = {
+        "profesores": Profesor.objects.all(),
+    }
+    http_response= render(
+        request=request,
+        template_name='app/profesores.html',
+        context=contexto,
+    )
+    return http_response
