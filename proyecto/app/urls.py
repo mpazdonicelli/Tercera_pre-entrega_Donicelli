@@ -1,12 +1,9 @@
 from django.urls import path
 from app import views
-from proyecto.views import saludar
-from app.views import inicio, materias, alumnos, profesores
+from app.views import listar_alumnos, listar_materias, listar_profesores
 
 urlpatterns = [
-    path('saludo/', saludar),
-    path('inicio/', inicio, name="inicio"),
-    path('materias/', materias, name="materias"),
-    path('alumnos/', alumnos, name="alumnos"),
-    path('profesores/', profesores, name="profesores")
+    path('materias/', listar_materias, name="materias"),
+    path('alumnos/', listar_alumnos, name="alumnos"),
+    path('profesores/', listar_profesores, name="profesores")
 ]

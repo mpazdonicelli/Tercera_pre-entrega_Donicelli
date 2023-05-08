@@ -1,5 +1,6 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 
 
 def saludar(request):
@@ -9,7 +10,7 @@ def inicio(request):
     contexto = {}
     http_response= render(
         request=request,
-        template_name='app/index.html',
+        template_name='app/templates/index.html',
         context=contexto,
     )
     return http_response
