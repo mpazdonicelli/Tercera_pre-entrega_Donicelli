@@ -1,0 +1,16 @@
+# esto se lo copié al profe, son los archivos que quiero que git ignore
+
+# Python
+*.pyc
+build/
+dist/
+venv/
+.cache/
+.pytest_cache/
+pygsheets.egg.info/
+.pytest_cache/
+media/*
+
+# Other
+.DS_Store
+.coverage
