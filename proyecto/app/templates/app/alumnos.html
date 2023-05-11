@@ -2,5 +2,32 @@
 {% load static %}
 
 {% block contenido %}
-<h1>Alumnos</h1>
+<section>
+  <div>
+    <h1>Alumnos</h1>
+    <a href="{% url 'agregar_alumno' %}">Agregar alumnos</a>
+    <br><br>
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th></th>
+          <th></th>
+        </tr>
+        {% for alumno in alumnos %}
+        <tr>
+          <td>{{ alumno.id }}</td>
+          <td>{{ alumno.nombre }}</td>
+          <td>{{ alumno.apellido }}</td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</section>
 {% endblock contenido %}

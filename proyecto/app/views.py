@@ -74,3 +74,47 @@ def buscar_materia(request):
             context=contexto,
         )
         return http_response
+    
+def agregar_alumno(request):
+    if request.method == "POST":
+        formulario = AlumnoFormulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data 
+            nombre = data["nombre"]
+            apellido = data["apellido"]
+            alumno = Alumno(nombre=nombre, apellido=apellido) 
+            alumno.save()
+
+            url_exitosa = reverse('listar_alumnos') 
+            return redirect(url_exitosa)
+    else:  # GET
+        formulario = AlumnoFormulario()
+    http_response = render(
+        request=request,
+        template_name='agregar_alumno.html',
+        context={'formulario': formulario}
+    )
+    return http_response
+
+def agregar_profesor(request):
+    if request.method == "POST":
+        formulario = ProfesorFormulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data 
+            nombre = data["nombre"]
+            apellido = data["apellido"]
+            profesor = Profesor(nombre=nombre, apellido=apellido) 
+            profesor.save()
+
+            url_exitosa = reverse('listar_profesor') 
+            return redirect(url_exitosa)
+    else:  # GET
+        formulario = ProfesorFormulario()
+    http_response = render(
+        request=request,
+        template_name='agregar_profesor.html',
+        context={'formulario': formulario}
+    )
+    return http_response
