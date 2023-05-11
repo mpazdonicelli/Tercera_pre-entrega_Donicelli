@@ -49,13 +49,13 @@ def crear_materia(request):
             materia = Materia(nombre=nombre, año=año) 
             materia.save()
 
-            url_exitosa = reverse('listar_materias') 
+            url_exitosa = reverse('materias') 
             return redirect(url_exitosa)
     else:  # GET
         formulario = MateriaFormulario()
     http_response = render(
         request=request,
-        template_name='crear_materia.html',
+        template_name='app/crear_materia.html',
         context={'formulario': formulario}
     )
     return http_response
@@ -86,13 +86,13 @@ def agregar_alumno(request):
             alumno = Alumno(nombre=nombre, apellido=apellido) 
             alumno.save()
 
-            url_exitosa = reverse('listar_alumnos') 
+            url_exitosa = reverse('alumnos') 
             return redirect(url_exitosa)
     else:  # GET
         formulario = AlumnoFormulario()
     http_response = render(
         request=request,
-        template_name='agregar_alumno.html',
+        template_name='app/agregar_alumno.html',
         context={'formulario': formulario}
     )
     return http_response
@@ -108,13 +108,13 @@ def agregar_profesor(request):
             profesor = Profesor(nombre=nombre, apellido=apellido) 
             profesor.save()
 
-            url_exitosa = reverse('listar_profesor') 
+            url_exitosa = reverse('profesores') 
             return redirect(url_exitosa)
     else:  # GET
         formulario = ProfesorFormulario()
     http_response = render(
         request=request,
-        template_name='agregar_profesor.html',
+        template_name='app/agregar_profesor.html',
         context={'formulario': formulario}
     )
     return http_response
