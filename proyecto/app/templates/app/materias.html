@@ -2,5 +2,38 @@
 {% load static %}
 
 {% block contenido %}
-<h1>Materias</h1>
+<section>
+  <div>
+    <h1>Lista de materias</h1>
+    <a href="{% url 'crear_materia' %}">Crear materia</a>
+    <br><br>
+    <form action="{% url 'buscar_materia' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="busqueda">
+      <input type="submit" value="Buscar por nombre">
+    </form>
+    <br>
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Año</th>
+          <th></th>
+          <th></th>
+        </tr>
+        {% for materia in materias %}
+        <tr>
+          <td>{{ materia.id }}</td>
+          <td>{{ materia.nombre }}</td>
+          <td>{{ materia.año }}</td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</section>
 {% endblock contenido %}

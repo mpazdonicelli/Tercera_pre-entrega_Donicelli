@@ -14,7 +14,7 @@ class Alumno(models.Model):
     email=models.EmailField()
 
     def __str__(self):
-        return f"{self.nombre} | {self.apellido}"
+        return f"{self.apellido}, {self.nombre}"
 
 
 class Profesor(models.Model):
@@ -23,4 +23,4 @@ class Profesor(models.Model):
     email=models.EmailField()
 
     def __str__(self):
-        return f"{self.nombre} | {self.apellido}"
+        return f"{self.apellido}, {self.nombre}"
